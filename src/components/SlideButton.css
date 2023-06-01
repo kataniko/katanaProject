@@ -1,0 +1,22 @@
+.animated-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #41B6E6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .fade-appear {
+    opacity: 0;
+  }
+  
+  .fade-appear-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+
+  
