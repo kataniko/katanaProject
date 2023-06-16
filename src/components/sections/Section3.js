@@ -38,7 +38,7 @@ const Section3 = () => {
         style={{ scaleX: scrollYProgress }}
       />
 
-      <Container sx={{ alignItems: "center", marginLeft: "10%", marginTop: { xs: 5, md: 0 } }}>
+      <Container className="reveal fade-left" sx={{ alignItems: "center", marginLeft: "10%", marginTop: { xs: 5, md: 0 } }}>
 
         <Typography sx={{
           backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 10%, #0047BB 100%)',
@@ -52,7 +52,9 @@ const Section3 = () => {
 
       </Container>
 
-      <Swiper />
+      
+        <Swiper />
+    
     </SectionThreeContainer>
   )
 }

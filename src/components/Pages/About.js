@@ -1,22 +1,51 @@
 import React, { useState } from 'react';
 import { Container, Box, Typography, Grid } from "@mui/material";
-import styled, { css } from 'styled-components';
+import { styled } from "@mui/system";
+import { css } from 'styled-components';
 import Divider from '@mui/material/Divider';
 import Section1P2 from '../Pages/Section1P2';
+import Section2P2 from '../Pages/Section2P2';
+import { motion } from "framer-motion";
 
 
+const RotatingSVG = styled('video')(({ theme }) => ({
+    width: '1600px',
+    height: '1600px',
+    position: "absolute",
+    top: -400,
+    left: -200,
+    [theme.breakpoints.down('sm')]: {
+        width: '800px',
+        top: -480,
+        left:-350
+    },
 
+}));
 
-const RotatingSVG = styled('img')(({ theme }) => ({
-    width: '1100px',
-    height: '1100px',
+const RotatingSVG2 = styled('img')(({ theme }) => ({
+
+    position: "absolute",
+    top: 10,
+    right: 0,
+    width:"45%",
+    [theme.breakpoints.down('sm')]: {
+        width: '350px',
+        top:300,
+        right:-50
+
+    },
+
+}));
+
+const Type2 = styled(Typography)(({ theme }) => ({
+
 }));
 
 const StyledTypography = styled(Typography)(({ theme }) => css`
   background: linear-gradient(to right, rgba(0, 71, 187, 1), rgba(65, 182, 230, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: ${({ isHovered }) => (isHovered ? 'white' : 'transparent')};
-  
+
 `);
 
 
@@ -50,27 +79,31 @@ const About = () => {
     return (
         <>
             <Box sx={{ backgroundColor: "#000613" }}>
-                <Container sx={{ backgroundColor: "#000613", width: "100vw", height: "100vh", textAlign: "center" }}>
-                    <Box sx={{ height: "70vh",  backgroundImage: `url(${process.env.PUBLIC_URL}/graficcircles.svg)`,backgroundPosition: "center top", backgroundSize: "fill", backgroundRepeat: "no-repeat", transform:"translate(0%,-50%" }}>
-                        <Typography style={{ fontWeight: 300 }} sx={{ textAlign: "center", color: "white", display: "flex", flexDirection: "column", fontFamily: "Jura", fontSize: 28, height: "100%", justifyContent: "Center", transform: "translate(1%,5%)" }}>
-                            About the <StyledTypography style={{ fontWeight: 300 }} id='main' isHovered={hoveredWord === 'AI-ON-DEMAND'} sx={{ marginTop: 1, fontSize: 80, fontFamily: "Jura" }}>AI-ON-DEMAND</StyledTypography> <Typography style={{ fontWeight: 300 }} sx={{ fontFamily: "Jura", fontSize: 28, }}>Platform</Typography>
-                        </Typography>
-                    </Box>
-                    <StyledLogo2
-                        src={process.env.PUBLIC_URL + '/setas2.svg'}
-                        alt="logo2"
-                        loading="lazy"
-                        onMouseEnter={() => handleImageHover(process.env.PUBLIC_URL + '/setas2.svg', 'AI-ON-DEMAND')}
-                        onMouseLeave={handleImageLeave}
-                    />
-                </Container>
+                <Box sx={{ backgroundColor: "#000613", width: "100vw", height: {md:"100vh",xs:"85vh"}, textAlign: "left" }}>
+                    <RotatingSVG autoPlay loop src={process.env.PUBLIC_URL + '/home-hero.webm'} alt="Rotating SVG" />
+                    <motion.div initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1 }}>
+                        <Box sx={{ height: {xs:"40vh", md:"60vh"}, transform: "translate(0%,-50%" }}>
 
-                <Container sx={{ height: "500vh", backgroundColor: "#000613" }}>
+
+                            <Typography style={{ fontWeight: 300 }} sx={{ textAlign: "left", color: "white", display: "flex", flexDirection: "column", fontFamily: "Jura", fontSize: {xs:20,md:28}, height: "100%", justifyContent: "Center", transform: {md:"translate(25%,0%)", xs:"translate(0%,5%)"} }}>
+                                About the <StyledTypography style={{ fontWeight: 300 }} id='main' isHovered={hoveredWord === 'AI-ON-DEMAND'} sx={{ marginTop: 0, fontSize:{xs:50,md:80}, fontFamily: "Jura", width:{xs:160,md:320},}}>AI on Demand</StyledTypography> <Typography style={{ fontWeight: 300 }} sx={{ fontFamily: "Jura", fontSize: {xs:20,md:28}, }}>Platform</Typography>
+                            </Typography>
+                            <div>
+                                <RotatingSVG2 src={process.env.PUBLIC_URL + '/about-banner.png'} />
+                            </div>
+                        </Box>
+
+                    </motion.div>
+                </Box>
+
+                <Container sx={{ height: "1100vh", backgroundColor: "#000613" }}>
                     <Container sx={{
                         width: "100vw",
                         height: "100vh",
                         backgroundImage: `url(${backgroundImage})`,
-                        backgroundSize:"fill",
+                        backgroundSize: "fill",
                         backgroundPosition: "right",
                         backgroundRepeat: "no-repeat",
                         borderRadius: 10,
@@ -93,7 +126,7 @@ const About = () => {
                                 The ai-on-demand platform (aiod) is a community-driven channel designed to empower European{' '}
                                 <StyledTypography className='main3'
                                     isHovered={hoveredWord === 'RESEARCH'}
-                                    sx={{ color: "blue", display: "inline", fontSize: { xs: "25px", md: "40px" } }}
+                                    sx={{ display: "inline", fontSize: { xs: "25px", md: "40px" } }}
                                     onMouseEnter={() => handleImageHover(process.env.PUBLIC_URL + '/meta.png', 'RESEARCH')}
                                     onMouseLeave={handleImageLeave}
                                 >
@@ -103,7 +136,7 @@ const About = () => {
                                 and{' '}
                                 <StyledTypography className='main'
                                     isHovered={hoveredWord === 'INNOVATION'}
-                                    sx={{ color: "blue", display: "inline", fontSize: { xs: "25px", md: 40 }, borderRadius: 10 }}
+                                    sx={{display: "inline", fontSize: { xs: "25px", md: 40 }, borderRadius: 10 }}
                                     onMouseEnter={() => handleImageHover(process.env.PUBLIC_URL + '/shutter.png', 'INNOVATION')}
                                     onMouseLeave={handleImageLeave}
                                 >
@@ -151,11 +184,14 @@ const About = () => {
                     </Container>
 
 
-                    <Box sx={{ maxWidth: "1000px", height: "10%", border: 1, margin: 0, backgroundColor: "#00182E", borderRadius: 10, marginTop: { xs: 40, md: 10 }, margin: "auto" }}>
+                    <Box sx={{ maxWidth: "1000px", height: "200px", border: 1, margin: 0, backgroundColor: "#00182E", borderRadius: 10, marginTop: { xs: 40, md: 10 }, margin: "auto" }}>
                     </Box>
 
                     <Box>
                         <Section1P2 />
+                    </Box>
+                    <Box>
+                        <Section2P2 />
                     </Box>
 
                 </Container >

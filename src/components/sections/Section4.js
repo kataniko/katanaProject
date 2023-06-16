@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from 'swiper';
 import HorizontalProgressBar from '../HorizontalProgressBar';
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -19,12 +20,13 @@ import "./News.css"
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
+import { Link } from 'react-router-dom';
 
 
 const Section4 = () => {
     const SectionFourContainer = styled(Box)(({ theme }) => ({
         position: 'relative',
-        height: '100vh',
+        height: '180vh',
         display: 'flex',
         width: "100vw",
         alignItems: 'center',
@@ -122,16 +124,17 @@ const Section4 = () => {
     ];
 
     const shineAnimation = keyframes`
-  0% {
-    background-position: 0px;
-  }
-  50% {
-    background-position: 600px;
-  }
-  100% {
-    background-position: 1200px;
-  }
-`;
+    0% {
+      background-position: 0px;
+    }
+    50% {
+      background-position: 110px;
+    }
+    100% {
+      background-position: 220px;
+    }
+  `;
+
 
     const swiperBreakpoints = {
         320: {
@@ -153,7 +156,7 @@ const Section4 = () => {
     return (
         <SectionFourContainer>
             <Container sx={{ width: "100%", alignItems: "center", marginLeft: { xs: "0%", md: "10%" }, marginTop: { xs: 15, md: 15 } }}>
-                <Typography
+                <Typography className="reveal fade-left"
                     sx={{
                         color: '#0047BB',
                         fontSize: 14,
@@ -167,17 +170,17 @@ const Section4 = () => {
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         animation: `${shineAnimation} 2s infinite linear`,
-
+                      
                     }}
                 >
                     SKIP FOR NEXT PHASE
                 </Typography>
                 <Box sx={{ width: "85vw" }}>
                     <Grid container>
-                        <Grid xs={10}>
+                        <Grid className="reveal fade-left" xs={10}>
                             <Typography variant="h3" sx={{ fontFamily: "Jura", color: "white", fontSize: "54px", fontWeight: "light", height: "70px", textAlign: "initial" }}>News</Typography>
                         </Grid>
-                        <Grid xs={2}>
+                        <Grid className="reveal fade-right" xs={2}>
                             <GlowingButton>See +</GlowingButton>
                         </Grid>
                     </Grid>
@@ -201,7 +204,7 @@ const Section4 = () => {
                     >
                         {data.map((datas) => (
                             <SwiperSlide >
-                                <Card sx={{ width: 400, height: 400, mt: { xs: 0, md: 5 }, background: "transparent", border: "1px solid darkgrey", mr: 3, borderRadius: 4, p: 0 }}>
+                                <Card className="reveal fade-bottom" sx={{ width: 400, height: 400, mt: { xs: 0, md: 5 }, background: "transparent", border: "1px solid darkgrey", mr: 3, borderRadius: 4, p: 0 }}>
                                     <CardContent>
                                         <Box>
 
@@ -213,7 +216,7 @@ const Section4 = () => {
                                                 <Typography>Play Video</Typography>
 
                                             </Box>
-                                                <HorizontalProgressBar duration={2500} color="yellow" />
+                                            <HorizontalProgressBar duration={2500} color="yellow" />
                                             <Box sx={{ position: "absolute", top: 280, textAlign: "left", p: 1 }}>
                                                 <Typography sx={{ color: "white", fontFamily: "Jura", fontSize: 24, fontWeight: 700 }}>
                                                     {datas.title}
@@ -228,6 +231,22 @@ const Section4 = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                </Box>
+                <Box sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}>
+                    <img style={{ position: "absolute", zIndex: 200, marginTop: 50 }} src={process.env.PUBLIC_URL + '/robospot.png'}></img>
+                    <Link style={{ display: "flex", justifyContent: "center" }} to="/About">
+                        <GlowingButton sx={{ position: "absolute", marginTop: 76, zIndex: 300, padding: 1, fontSize: 20 }}>Go</GlowingButton>
+                    </Link>
+
+                    <motion.div style={{ position: "absolute", marginTop: "10%" }}
+                        initial={{ x: "-100%" }}
+                        animate={{ x: "100%" }}
+                        transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+                    >
+                        <Typography sx={{ fontFamily: "Jura", color: "grey", fontSize: { xs: "50px", md: "400px" }, fontWeight: 400, width: "100vw" }}>
+                            About
+                        </Typography>
+                    </motion.div>
                 </Box>
             </Container>
         </SectionFourContainer>

@@ -2,11 +2,19 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Typography, Card, CardContent, Grid } from "@mui/material";
 import { styled } from "@mui/system";
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { motion } from "framer-motion"
 
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "../../sections/Carousel/swiper.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation"; // if you're using navigation buttons
+import "../../sections/Carousel/swiper.css"; // or the correct path to the swiper.css file
+
 
 import { Pagination } from "swiper";
 
@@ -27,9 +35,17 @@ const CustomPaginationItem = styled(Typography)(({ theme }) => ({
 export default function App() {
 
     const pagination = {
-       
         clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+      };
+
+    const handlePaginationItemClick = (index) => {
+        // Handle pagination item click event
+        console.log(`Clicked pagination item ${index}`);
     };
+
 
     const data2 = [
         { id: 0, description: " AIoD SW of the Platform and API accessible. Distribute the platform." },
@@ -46,17 +62,18 @@ export default function App() {
         { id: 3, description: "Eurobin NoE working now on Eurocore!" },
         { id: 4, description: "AI doctoral academy to be united with the AIoD here " },
     ];
-    
+
 
 
 
     return (
 
         <>
-            <Swiper  modules={[Pagination]} className="mySwiper">
+            <Swiper pagination={pagination}
+                modules={[Pagination]} className="mySwiper">
                 {data2.map((user) => (
                     <SwiperSlide key={user.id}>
-                        <Card elevation={0} sx={{ width: "100vw", height: "80vh", backgroundColor: "transparent" }}>
+                        <Card className="reveal fade-right" elevation={0} sx={{ width: "100vw", height: "70vh", backgroundColor: "transparent" }}>
                             <CardContent sx={{ width: "100%" }}>
                                 <Grid container sx={{ marginTop: 2 }}>
                                     <Grid xs={12} md={6} order={{ xs: 2, md: 1 }}>
@@ -67,6 +84,7 @@ export default function App() {
                                     </Grid>
                                     <Grid xs={12} md={6} order={{ xs: 1, md: 2 }}>
                                         <Box sx={{ backgroundColor: "grey", height: { xs: 190, md: 400 }, borderRadius: 10, marginRight: 2, mt: { xs: 5 } }}></Box>
+
                                     </Grid>
                                 </Grid>
                             </CardContent>
@@ -74,22 +92,6 @@ export default function App() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <CustomPagination className="custom-pagination">
-                {pagi.map((useri) => (
-                    <CustomPaginationItem key={useri.id} >
-                        <Card elevation={0} sx={{backgroundColor:"transparent", width:{md:300, xs:50},height:"150px"}} >
-                            <CardContent>
-                                <Typography sx={{maxWidth:"300px", color:"white"}}>
-                                    {useri.id}.
-                                </Typography>
-                                <Typography sx={{color:"white", display:{xs:"none", md:"inherit"}}}>
-                                    {useri.description}
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </CustomPaginationItem>
-                ))}
-            </CustomPagination>
         </>
 
     );

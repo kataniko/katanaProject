@@ -9,7 +9,7 @@ const Footer = () => {
 
 
         <Box sx={{ backgroundColor: "#000613", height: { xs: "100vh", md: "70vh" }, margin: 0, padding: 0 }}>
-            <Box sx={{
+            <Box className="reveal fade-bottom" sx={{
                 maxWidth: 1324, height: { xs: 660, md: 400 }, background: "linear-gradient(288.18deg, #41B6E6 -19.23%, #0047BB 37.9%, #003399 100%)",
                 borderRadius: 10, display: "flex", flexDirection: "column", margin: "auto", p: { xs: 4, md: 0 }
             }}>
@@ -18,7 +18,6 @@ const Footer = () => {
 
                     <Grid xs={12} md={4} sx={{ paddingLeft: { xs: 0, md: 10 }, pt: {xs:0, md:2}, display: "flex", flexDirection: "column", width: "100%" }}>
                         <Box sx={{ display: { xs: "flex" }, flexDirection: { md: "column" } }}>
-
                             <img style={{ width: 150, marginTop: 0 }} src={process.env.PUBLIC_URL + '/logoheader.svg'} alt='hihihi' />
 
                             <Box sx={{ display: { xs: "none", md: "initial" } }}>
@@ -35,7 +34,7 @@ const Footer = () => {
                         <Typography sx={{ fontFamily: "Jura", mt: { xs: 1, md: 1 }, color: "darkgrey" }}>Stay current with all the things AIoD</Typography>
 
                         <Box sx={{ display: "flex" }}>
-                            <TextField label="Email" variant="outlined" sx={{ mt: { xs: 2, md: 5 }, color: "white", position: { xs: "absolute", md: "unset" }, width: "60%" }} />
+                            <TextField  variant="outlined" sx={{ mt: { xs: 2, md: 5 }, color: "white", position: { xs: "absolute", md: "unset" }, width: "60%" }} />
 
                             <Button sx={{ padding: 2, borderRadius: 10, backgroundColor: "yellow", transform: { xs: "translate(150%,0%)", md: "translate(-30%,0%)" }, mt: { xs: 2, md: 5 }, ml: 2, fontSize: 12 }}>Subscribe <SendIcon sx={{ ml: 1 }} /></Button>
 
@@ -61,10 +60,10 @@ const Footer = () => {
                 </Grid>
             </Box>
 
-            <Container>
-                <Typography sx={{ color: "darkgrey", fontFamily: "Jura", mt: 4 }}>Privacy Policy  |  Responsible Disclosure  |  Terms of use</Typography>
-                <Typography sx={{ color: "darkgrey", fontFamily: "Jura", mt: 4 }}>©2023 All Rights Reserved AIoD</Typography>
-                <Box sx={{ display: "flex", justifyContent: "end" }}>
+            <Container >
+                <Typography className="reveal fade-left" sx={{ color: "darkgrey", fontFamily: "Jura", mt: 4 }}>Privacy Policy  |  Responsible Disclosure  |  Terms of use</Typography>
+                <Typography className="reveal fade-left" sx={{ color: "darkgrey", fontFamily: "Jura", mt: 4 }}>©2023 All Rights Reserved AIoD</Typography>
+                <Box className="reveal fade-right" sx={{ display: "flex", justifyContent: "end" }}>
                     <img src={process.env.PUBLIC_URL + '/frameLOBA.svg'} />
 
                 </Box>

@@ -5,11 +5,12 @@ import Typewriter from 'typewriter-effect';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { keyframes } from '@emotion/react';
+import { motion } from 'framer-motion';
 
 
 const Section1 = () => {
 
- 
+
 
   const SectionOneContainer = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -22,17 +23,20 @@ const Section1 = () => {
 
   const CircleBackground = styled('div')(({ theme }) => ({
     position: 'absolute',
-    left: '50%',
-    transform: 'translate(-50%, -15%)',
-    width: '1100px',
-    height: '1100px',
+    left: '34%',
+    transform: 'translate(-50%, -25%)',
+    width: '1200px',
+    height: '1200px',
     display: 'flex',
     alignItems: 'center',
   }));
 
-  const RotatingSVG = styled('img')(({ theme }) => ({
-    width: '1100px',
-    height: '1100px',
+  const RotatingSVG = styled('video')(({ theme }) => ({
+    width: '1800px',
+    height: '1800px',
+    [theme.breakpoints.down('sm')]: {
+      width: '1350px',
+    },
   }));
 
   const RotatingSVG2 = styled('img')(({ theme }) => ({
@@ -52,7 +56,7 @@ const Section1 = () => {
     flexDirection: "column",
     justifyContent: "center",
     textAlign: 'center',
-    transform: "translate(0%,27%)"
+    transform: "translate(0%,35%)"
 
   }));
 
@@ -95,6 +99,7 @@ const Section1 = () => {
   `;
   const TypewriterEffect = () => {
     return (
+
       <TypewriterWrapper>
         <Typewriter
           options={{
@@ -153,140 +158,165 @@ const Section1 = () => {
   return (
 
     <SectionOneContainer >
-    
-          <CircleBackground>
-            <RotatingSVG src={process.env.PUBLIC_URL + '/circles.svg'} alt="Rotating SVG" />
-          </CircleBackground>
 
-          <Title>
-            <ProductTypography>
-              <ExploreProductTypography>
-                <Typography sx={{ marginLeft: 1.5, fontFamily: 'Jura', fontSize: 14, color: "white" }}>
-                  AI made in Europe
-                </Typography>
-                <div
-                  style={{
-                    width: '1px',
-                    height: '10px',
-                    backgroundColor: '#ffffff',
-                    margin: '0 10px',
-                  }}
-                />
-                <Typography sx={{
-                  marginRight: 1.5, backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 60%, #0047BB 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+      <CircleBackground>
+        <motion.div initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2 }}>
+          <RotatingSVG autoPlay loop src={process.env.PUBLIC_URL + '/home-hero.webm'} alt="Rotating SVG" />
+        </motion.div>
+      </CircleBackground>
 
-                  fontFamily: "Jura", fontSize: 17
-                }}>Explore <ArrowForwardIcon sx={{ fontSize: 13, color: "yellow" }} /> </Typography>
-              </ExploreProductTypography>
-            </ProductTypography>
+      <Title>
+        <ProductTypography>
+          <ExploreProductTypography>
+            <motion.div initial={{ opacity: 0, scale: 0.5, z: -100 }}
+              animate={{ opacity: 1, scale: 1, z: 0 }}
+              transition={{ duration: 2 }}>
+              <Typography sx={{ marginLeft: 1.5, fontFamily: 'Jura', fontSize: 14, color: "white" }}>
+                AI made in Europe
+              </Typography>
+            </motion.div>
 
-            <Typography sx={{ fontSize: 28, fontFamily: "Jura", marginTop: "5%", color: "darkgray" }}>A community-driven channel empowering</Typography>
-
-            <TypewriterEffect
+            <div
+              style={{
+                width: '1px',
+                height: '10px',
+                backgroundColor: '#ffffff',
+                margin: '0 10px',
+              }}
             />
 
+            <motion.div initial={{ opacity: 0, scale: 0.5, z: -100 }}
+              animate={{ opacity: 1, scale: 1, z: 0 }}
+              transition={{ duration: 2.2 }}>
+              <Typography sx={{
+                marginRight: 1.5, backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 60%, #0047BB 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
 
-            <Typography sx={{ textAlign: "center", color: "#FFFFFF", fontSize: 18, opacity: "70%", marginTop: "1%", fontFamily: "Jura" }}>
-              Knowledge and services for the community
-            </Typography>
+                fontFamily: "Jura", fontSize: 17
+              }}>Explore <ArrowForwardIcon sx={{ fontSize: 13, color: "yellow" }} /> </Typography>
+            </motion.div>
+          </ExploreProductTypography>
+        </ProductTypography>
+
+        <motion.div initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2.5 }}>
+          <Typography sx={{ fontSize: 28, fontFamily: "Jura", marginTop: "5%", color: "darkgray" }}>A community-driven channel empowering</Typography>
+        </motion.div>
 
 
-            <ProductTypography2>
-              <ExploreProductTypography2>
-                <GlowingButton sx={{ padding: 2, borderRadius: 10, fontSize: 12, fontFamily: "Jura", fontWeight: "bold", color: "white", backgroundColor: "#0047BB" }}>Know More <AddOutlinedIcon sx={{ fontSize: 12 }} /></GlowingButton>
-              </ExploreProductTypography2>
-            </ProductTypography2>
+        <motion.div initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2.8 }}>
+          <TypewriterEffect
+          />
+        </motion.div>
 
-          </Title>
 
-          <SVGbox>
-            <RotatingSVG2 src={process.env.PUBLIC_URL + '/setaseta.svg'} alt="Rotating SVG" />
-          </SVGbox>
+        <motion.div initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 3 }}>
+          <Typography sx={{ textAlign: "center", color: "#FFFFFF", fontSize: 18, opacity: "70%", marginTop: "1%", fontFamily: "Jura" }}>
+            Knowledge and services for the community
+          </Typography>
+        </motion.div>
 
-          <Box sx={{ backgroundColor: "transparent", width: "100vw", height: "85vh", transform: "translate(0%,100%)", position: "absolute" }}>
 
-            <Grid sx={{ marginTop: 5 }} container spacing={0} >
+        <ProductTypography2>
+          <ExploreProductTypography2>
+            <GlowingButton sx={{ padding: 2, borderRadius: 10, fontSize: 12, fontFamily: "Jura", fontWeight: "bold", color: "white", backgroundColor: "#0047BB" }}>Know More <AddOutlinedIcon sx={{ fontSize: 12 }} /></GlowingButton>
+          </ExploreProductTypography2>
+        </ProductTypography2>
 
-              <Grid xs={12} md={6}>
+      </Title>
 
-                <Container sx={{ display: "flex", justifyContent: "center" }}>
 
-                  <Card elevation={0} sx={{ backgroundColor: { xs: "#000613", md: "transparent" }, position: "absolute", boxShadow: "0px -40px 50px #000613" }}>
+      <Box sx={{ backgroundColor: "transparent", width: "100vw", height: "85vh", transform: "translate(0%,100%)", position: "absolute" }}>
 
-                    <CardContent sx={{ paddingTop: 4, width: { md: "400px", xs: "100vw" }, height: "541px", paddingLeft: { xs: 10, md: 0 } }}>
+        <Grid sx={{ marginTop: 5 }} container spacing={0} >
 
-                      <Typography sx={{
-                        backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 10%, #0047BB 100%)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        animation: `${shineAnimation} 10s infinite linear`,
-                        fontFamily: "Jura", fontSize: 20, fontWeight: "bold"
-                      }}>
-                        What is the AIOD
-                      </Typography>
+          <Grid xs={12} md={6}>
 
-                      <Typography sx={{ color: "white", fontFamily: "Jura", fontSize: "54px" }}>How it works</Typography>
-                      <Typography sx={{ color: "darkgray", fontFamily: "Jura", letterSpacing: 3 }}>Build/Acess cutting-edge<br />AI technology</Typography>
-                      <Typography sx={{ color: "darkgray", fontFamily: "Jura", maxWidth: "394px", maxHeight: "255px", fontSize: 18, marginTop: 2, fontWeight: 400 }}>We provide a framework to an open source platform instanciate new platforms that allow you to get access to the latest information on AI and Robotics from the community.We also aggregate services from latest European (or not) research to be accessible and exploited/used and extended.We follow european principles to democratize AI for everyone and make it fair.</Typography>
-                      <GlowingButton>Know More</GlowingButton>
-                    </CardContent>
+            <Container sx={{ display: "flex", justifyContent: "center" }}>
 
-                  </Card>
+              <Card elevation={0} sx={{ backgroundColor: { xs: "#000613", md: "transparent" }, position: "absolute", boxShadow: "0px -40px 50px #000613" }}>
 
-                </Container>
+                <CardContent className="carta reveal fade-left" sx={{ paddingTop: 4, width: { md: "400px", xs: "100vw" }, height: "541px", paddingLeft: { xs: 10, md: 0 } }}>
+
+                  <Typography sx={{
+                    backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 10%, #0047BB 100%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    animation: `${shineAnimation} 10s infinite linear`,
+                    fontFamily: "Jura", fontSize: 20, fontWeight: "bold"
+                  }}>
+                    What is the AIOD
+                  </Typography>
+
+                  <Typography sx={{ color: "white", fontFamily: "Jura", fontSize: "54px" }}>How it works</Typography>
+                  <Typography sx={{ color: "darkgray", fontFamily: "Jura", letterSpacing: 3 }}>Build/Acess cutting-edge<br />AI technology</Typography>
+                  <Typography sx={{ color: "darkgray", fontFamily: "Jura", maxWidth: "394px", maxHeight: "255px", fontSize: 18, marginTop: 2, fontWeight: 400 }}>We provide a framework to an open source platform instanciate new platforms that allow you to get access to the latest information on AI and Robotics from the community.We also aggregate services from latest European (or not) research to be accessible and exploited/used and extended.We follow european principles to democratize AI for everyone and make it fair.</Typography>
+                  <GlowingButton>Know More</GlowingButton>
+                </CardContent>
+
+              </Card>
+
+            </Container>
+          </Grid>
+
+          <Grid className="reveal fade-right" sx={{ zIndex: 10 }} xs={12} sm={6} md={6}>
+
+            <Grid container spacing={0} sx={{ marginTop: { xs: 64, md: 2, lg: 1 }, marginLeft: { xs: 2 } }}>
+
+              <Grid xs={6} md={5}>
+
+                <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: { xs: "165px", md: "330px" }, height: { xs: "144px", md: "300px" }, transform: { xs: "translate(20%,70%)", md: "translate(0%,60%)" } }}>
+
+                  <CardContent >
+
+
+                  </CardContent>
+
+                </Card>
+
               </Grid>
 
-              <Grid sx={{ zIndex: 10 }} xs={12} sm={6} md={6}>
+              <Grid xs={6} md={5}>
 
-                <Grid container spacing={0} sx={{ marginTop: { xs: 64, md: 2, lg: 1 }, marginLeft: { xs: 2 } }}>
+                <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: { xs: "165px", md: "330px" }, height: { xs: "144px", md: "300px" } }}>
+                </Card>
 
-                  <Grid xs={6} md={5}>
-
-                    <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: { xs: "165px", md: "330px" }, height: { xs: "144px", md: "300px" }, transform: { xs: "translate(20%,70%)", md: "translate(0%,60%)" } }}>
-
-                      <CardContent >
-
-                      </CardContent>
-
-                    </Card>
-
-                  </Grid>
-
-                  <Grid xs={6} md={5}>
-
-                    <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: { xs: "165px", md: "330px" }, height: { xs: "144px", md: "300px" } }}>
-                    </Card>
-
-                    <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: { xs: "165px", md: "330px" }, height: { xs: "200px", md: "400px" }, marginTop: "24px", }}>
-                    </Card>
-
-                  </Grid>
-
-                  <Grid xs={12} md={2}>
-
-                    <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: "100px", height: "300px", marginTop: "24px", transform: "translate(0%,50%)", display: { xs: "none" } }}>
-
-                      <CardContent >
-
-                      </CardContent>
-
-                    </Card>
-
-                  </Grid>
-
-
-                </Grid>
-
+                <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: { xs: "165px", md: "330px" }, height: { xs: "200px", md: "400px" }, marginTop: "24px", }}>
+                </Card>
 
               </Grid>
+
+              <Grid xs={12} md={2}>
+
+                <Card sx={{ backgroundColor: "grey", borderRadius: 5, width: "100px", height: "300px", marginTop: "24px", transform: "translate(0%,50%)", display: { xs: "none" } }}>
+
+                  <CardContent >
+
+                  </CardContent>
+
+                </Card>
+
+              </Grid>
+
 
             </Grid>
 
-          </Box>
+
+          </Grid>
+
+        </Grid>
+
+      </Box>
     </SectionOneContainer>
 
   );

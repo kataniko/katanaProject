@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, styled } from '@mui/system';
-import { Typography, Card, CardContent, Grid } from '@mui/material';
+import { Typography, Card, CardContent, Grid,Button } from '@mui/material';
 import { Component } from "react";
 import VerticalCarousel from "../sections/Carousel/VerticalCarousel.js";
 import { config } from "react-spring";
@@ -18,6 +18,34 @@ const Cards = styled(Card)(({ theme }) => ({
 
 }));
 
+const GlowingButton = styled(Button)(({ theme }) => ({
+  position: 'relative',
+  '&:hover': { backgroundColor: 'yellow', color: "#41B6E6" },
+  borderRadius: 20,
+  fontSize: 16,
+  fontFamily: 'Jura',
+  fontWeight: 'bold',
+  color: 'white',
+  backgroundColor: '#41B6E6',
+  overflow: 'hidden',
+  marginTop: "50px",
+  marginRight:"auto",
+  marginLeft:"auto",
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    bottom: '-30%',
+    left: '-7%',
+    width: '200%',
+    height: '200%',
+    borderRadius: '150%',
+    background: `radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2) 80%)`,
+    boxShadow: '0 0 10px 5px rgba(255, 255, 255, 0.4)',
+    transform: 'translate(-20%, 80%)',
+    zIndex: 1,
+  },
+}));
+
 const Svg = styled('img')(({ theme }) => ({
   width: "180px",
   height: "150px",
@@ -27,7 +55,7 @@ const Svg = styled('img')(({ theme }) => ({
 const SVGTitle = styled(Typography)(({ theme }) => ({
   textAlign: "center",
   FontFamily: "Jura",
-  marginTop: "10%",
+  marginTop: "5%",
   fontSize: 32,
   color: "#FFED00",
   lineWeight: 500,
@@ -37,7 +65,7 @@ const SVGTitle = styled(Typography)(({ theme }) => ({
 
 
 const SVGBox = styled(Typography)(({
-  marginTop: 20,
+  marginTop: 10,
   fontFamily: "Jura",
   fontStyle: "Normal",
   fontSize: 18,
@@ -66,7 +94,7 @@ const slides = [
     key: 0,
     content: (
       <Cards >
-        <CardContent>
+        <CardContent sx={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10%" }}>
             <Svg src={process.env.PUBLIC_URL + '/Vectorvector1.svg'} alt="Rotating SVG" />
           </Box>
@@ -76,6 +104,7 @@ const slides = [
           <SVGBox >
             Tools for researchers. To experiment, to play, to explore datasets, ML, NLP.
           </SVGBox>
+          <GlowingButton sx={{width:200}}>See More</GlowingButton>
         </CardContent>
       </Cards>
     )
@@ -84,7 +113,7 @@ const slides = [
     key: 1,
     content: (
       <Cards elevation={0} >
-        <CardContent>
+        <CardContent sx={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10%" }}>
             <Svg src={process.env.PUBLIC_URL + '/Communitiesvector2.svg'} alt="Rotating SVG" />
           </Box>
@@ -94,6 +123,7 @@ const slides = [
           <SVGBox >
             Are you informed about the latest projects from the EC on AI and Robotics? Do you know the news about them? Events, conferences?
           </SVGBox>
+          <GlowingButton sx={{width:200}}>See More</GlowingButton>
         </CardContent>
       </Cards>
     )
@@ -102,7 +132,7 @@ const slides = [
     key: 2,
     content: (
       <Cards elevation={0} >
-        <CardContent>
+        <CardContent sx={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10%" }}>
             <Svg src={process.env.PUBLIC_URL + '/Innovationsvector3.svg'} alt="Rotating SVG" />
           </Box>
@@ -112,6 +142,7 @@ const slides = [
           <SVGBox >
             More than 100 companies showcasing how AI helped them to bootstrap their busines
           </SVGBox>
+          <GlowingButton sx={{width:200,}}>See More</GlowingButton>
         </CardContent>
       </Cards>
     )
@@ -120,7 +151,7 @@ const slides = [
     key: 3,
     content: (
       <Cards elevation={0} >
-        <CardContent>
+        <CardContent sx={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10%" }}>
             <Svg src={process.env.PUBLIC_URL + '/Robospotvector4.svg'} alt="Rotating SVG" />
           </Box>
@@ -131,6 +162,7 @@ const slides = [
             Tools for robotics people. Eurocore,
             OpenEase
           </SVGBox>
+          <GlowingButton sx={{width:200,}}>See More</GlowingButton>
         </CardContent>
       </Cards>
     )
@@ -140,7 +172,7 @@ const slides = [
     content: (
 
       <Cards elevation={0} >
-        <CardContent>
+        <CardContent sx={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10%" }}>
             <Svg src={process.env.PUBLIC_URL + '/Developer Toolsvector5.svg'} alt="Rotating SVG" />
           </Box>
@@ -150,6 +182,7 @@ const slides = [
           <SVGBox >
             How to create on top of our API, instanciate a new platform node, or extend ANYTHING you want. You will find it there
           </SVGBox>
+          <GlowingButton sx={{width:200}}>See More</GlowingButton>
         </CardContent>
       </Cards>
 
@@ -174,7 +207,7 @@ export default class Section2 extends Component {
 
           <Grid container >
 
-            <Grid xs={12} md={6} >
+            <Grid className="reveal fade-left" xs={12} md={6} >
               <VerticalCarousel
                 slides={slides}
                 offsetRadius={this.state.offsetRadius}
@@ -186,7 +219,7 @@ export default class Section2 extends Component {
             <Grid sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "initial" }, marginTop: { xs: 0, md: 10 } }} xs={12} md={6} >
 
               <Box sx={{ width: "400px", textAlign: { xs: "center", md: "initial" } }}>
-                <Card elevation={0} sx={{ backgroundColor: "transparent" }}>
+                <Card className="reveal fade-right" elevation={0} sx={{ backgroundColor: "transparent" }}>
                   <CardContent sx={{ paddingLeft: { xs: 0, md: 12 }, }}>
                     <Typography sx={{
                       backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 10%, #0047BB 100%)',
