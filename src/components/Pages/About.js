@@ -84,13 +84,13 @@ const About = () => {
                     <motion.div initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}>
-                        <Box sx={{ height: {xs:"40vh", md:"60vh"}, transform: "translate(0%,-50%" }}>
+                        <Box sx={{ height: {xs:"40vh", md:"60vh"} }}>
 
 
                             <Typography style={{ fontWeight: 300 }} sx={{ textAlign: "left", color: "white", display: "flex", flexDirection: "column", fontFamily: "Jura", fontSize: {xs:20,md:28}, height: "100%", justifyContent: "Center", transform: {md:"translate(25%,0%)", xs:"translate(0%,5%)"} }}>
                                 About the <StyledTypography style={{ fontWeight: 300 }} id='main' isHovered={hoveredWord === 'AI-ON-DEMAND'} sx={{ marginTop: 0, fontSize:{xs:50,md:80}, fontFamily: "Jura", width:{xs:160,md:320},}}>AI on Demand</StyledTypography> <Typography style={{ fontWeight: 300 }} sx={{ fontFamily: "Jura", fontSize: {xs:20,md:28}, }}>Platform</Typography>
                             </Typography>
-                            <div>
+                            <div style={{ overflow:"hidden"}}>
                                 <RotatingSVG2 src={process.env.PUBLIC_URL + '/about-banner.png'} />
                             </div>
                         </Box>

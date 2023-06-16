@@ -24,7 +24,7 @@ const Section1 = () => {
   const CircleBackground = styled('div')(({ theme }) => ({
     position: 'absolute',
     left: '34%',
-    transform: 'translate(-50%, -25%)',
+    transform: 'translate(-50%, -30%)',
     width: '1200px',
     height: '1200px',
     display: 'flex',
@@ -56,8 +56,10 @@ const Section1 = () => {
     flexDirection: "column",
     justifyContent: "center",
     textAlign: 'center',
-    transform: "translate(0%,35%)"
-
+    transform: "translate(0%,35%)",
+    [theme.breakpoints.down('sm')]: {
+      transform: "translate(0%,25%)"
+    }
   }));
 
   const ProductTypography = styled(Typography)(({ theme }) => ({
@@ -76,8 +78,8 @@ const Section1 = () => {
   }));
 
   const TypewriterWrapper = styled('div')(({ theme }) => ({
-    fontSize: 70,
-    marginTop: '10px',
+    fontSize: 60,
+    marginTop: '5px',
     background: 'radial-gradient(circle, #0047BB 50%, rgba(0, 0, 0, 1) 100%)',
     '-webkit-background-clip': 'text',
     '-webkit-text-fill-color': 'transparent',
@@ -205,7 +207,7 @@ const Section1 = () => {
         <motion.div initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2.5 }}>
-          <Typography sx={{ fontSize: 28, fontFamily: "Jura", marginTop: "5%", color: "darkgray" }}>A community-driven channel empowering</Typography>
+          <Typography sx={{ fontSize: 22, fontFamily: "Jura", marginTop: "5%", color: "darkgray" }}>A community-driven channel empowering</Typography>
         </motion.div>
 
 
@@ -220,7 +222,7 @@ const Section1 = () => {
         <motion.div initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 3 }}>
-          <Typography sx={{ textAlign: "center", color: "#FFFFFF", fontSize: 18, opacity: "70%", marginTop: "1%", fontFamily: "Jura" }}>
+          <Typography sx={{ textAlign: "center", color: "#FFFFFF", fontSize: 15, opacity: "70%", marginTop: "1%", fontFamily: "Jura" }}>
             Knowledge and services for the community
           </Typography>
         </motion.div>
@@ -245,7 +247,7 @@ const Section1 = () => {
 
               <Card elevation={0} sx={{ backgroundColor: { xs: "#000613", md: "transparent" }, position: "absolute", boxShadow: "0px -40px 50px #000613" }}>
 
-                <CardContent className="carta reveal fade-left" sx={{ paddingTop: 4, width: { md: "400px", xs: "100vw" }, height: "541px", paddingLeft: { xs: 10, md: 0 } }}>
+                <CardContent className="carta reveal fade-left" sx={{ paddingTop: 4, width: { md: "400px", xs: "100vw" }, height: "541px", paddingLeft: { xs: 5, md: 0 } }}>
 
                   <Typography sx={{
                     backgroundImage: 'linear-gradient(to right, #0047BB 0, yellow 10%, #0047BB 100%)',
@@ -260,7 +262,7 @@ const Section1 = () => {
 
                   <Typography sx={{ color: "white", fontFamily: "Jura", fontSize: "54px" }}>How it works</Typography>
                   <Typography sx={{ color: "darkgray", fontFamily: "Jura", letterSpacing: 3 }}>Build/Acess cutting-edge<br />AI technology</Typography>
-                  <Typography sx={{ color: "darkgray", fontFamily: "Jura", maxWidth: "394px", maxHeight: "255px", fontSize: 18, marginTop: 2, fontWeight: 400 }}>We provide a framework to an open source platform instanciate new platforms that allow you to get access to the latest information on AI and Robotics from the community.We also aggregate services from latest European (or not) research to be accessible and exploited/used and extended.We follow european principles to democratize AI for everyone and make it fair.</Typography>
+                  <Typography sx={{ color: "darkgray", fontFamily: "Jura", maxWidth: "380px", maxHeight: "255px", fontSize: {xs:16,md:18}, marginTop: 2, fontWeight: 400 }}>We provide a framework to an open source platform instanciate new platforms that allow you to get access to the latest information on AI and Robotics from the community.We also aggregate services from latest European (or not) research to be accessible and exploited/used and extended.We follow european principles to democratize AI for everyone and make it fair.</Typography>
                   <GlowingButton>Know More</GlowingButton>
                 </CardContent>
 
