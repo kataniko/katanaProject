@@ -173,18 +173,14 @@ const About = () => {
                                         The aiod platform can be used by the community to:
                                     </Typography>
 
-                                    <StyledTypography style={{ fontWeight: 700 }} sx={{ fontSize: { xs: "25px", md: "40px" }, fontFamily: "Jura", marginTop: 5, color: (hoveredWord === 'RESEARCH' || hoveredWord === 'INNOVATION' || hoveredWord === 'SEAL OF QUALITY') ? "transparent" : "" }}>
-                                        Share ai-related knowledge , assets , services or tools.
-                                    </StyledTypography>
-
-
+                                
                                 </Grid>
                             </Grid>
                         </Box>
                     </Container>
 
 
-                    <Box sx={{ maxWidth: "1000px", height: "200px", border: 1, margin: 0, backgroundColor: "#00182E", borderRadius: 10, marginTop: { xs: 40, md: 10 }, margin: "auto" }}>
+                    <Box sx={{ maxWidth: "1000px", height: "200px", border: 1, margin: 0, backgroundColor: "#00182E", borderRadius: 10, marginTop: { xs: 30, md: 5 }, margin: "auto" }}>
                     </Box>
 
                     <Box>

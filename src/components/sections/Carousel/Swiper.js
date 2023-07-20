@@ -18,18 +18,6 @@ import "../../sections/Carousel/swiper.css"; // or the correct path to the swipe
 
 import { Pagination } from "swiper";
 
-const CustomPagination = styled(Box)(({ theme }) => ({
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "20px",
-}));
-
-const CustomPaginationItem = styled(Typography)(({ theme }) => ({
-    color: "#FFED00",
-    cursor: "pointer",
-}));
-
 
 
 export default function App() {
@@ -37,9 +25,9 @@ export default function App() {
     const pagination = {
         clickable: true,
         renderBullet: function (index, className) {
-          return '<span class="' + className + '">' + (index + 1) + "</span>";
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
         },
-      };
+    };
 
     const handlePaginationItemClick = (index) => {
         // Handle pagination item click event
@@ -73,7 +61,7 @@ export default function App() {
                 modules={[Pagination]} className="mySwiper">
                 {data2.map((user) => (
                     <SwiperSlide key={user.id}>
-                        <Card className="reveal fade-right" elevation={0} sx={{ width: "100vw", height: "70vh", backgroundColor: "transparent" }}>
+                        <Card className="reveal fade-right" elevation={0} sx={{ width: "100vw", height: "80vh", backgroundColor: "transparent" }}>
                             <CardContent sx={{ width: "100%" }}>
                                 <Grid container sx={{ marginTop: 2 }}>
                                     <Grid xs={12} md={6} order={{ xs: 2, md: 1 }}>
@@ -83,7 +71,7 @@ export default function App() {
                                         <Typography variant="h6" sx={{ color: "gray", marginTop: { xs: 10, md: 7 }, fontFamily: "Jura", fontWeight: "light", width: "auto", maxWidth: "550px", textAlign: "left" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</Typography>
                                     </Grid>
                                     <Grid xs={12} md={6} order={{ xs: 1, md: 2 }}>
-                                        <Box sx={{ backgroundColor: "grey", height: { xs: 190, md: 400 }, borderRadius: 10, marginRight: 2, mt: { xs: 5 } }}></Box>
+                                        <Box sx={{ backgroundColor: "grey", height: { xs: 190, md: 400 }, borderRadius: 10, marginRight: 2, mt: { xs: 0 } }}></Box>
 
                                     </Grid>
                                 </Grid>

@@ -8,9 +8,10 @@ const HorizontalProgressBar = ({ duration, color }) => {
             setProgress((prevProgress) => {
                 if (prevProgress < 100) {
                     return prevProgress + 1;
+                } else {
+                    // Reset the progress to 0 when it reaches 100
+                    return 0;
                 }
-                clearInterval(interval);
-                return prevProgress;
             });
         }, duration);
 
@@ -28,7 +29,7 @@ const HorizontalProgressBar = ({ duration, color }) => {
 
     return (
         <div>
-            <div style={{ width: '100%', height: '3px', backgroundColor: 'transparent', border:"1px solid grey" }}>
+            <div style={{ width: '100%', height: '3px', backgroundColor: 'transparent', border: "1px solid grey" }}>
                 <div style={progressBarStyles}></div>
             </div>
         </div>

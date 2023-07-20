@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from 'swiper';
 import HorizontalProgressBar from '../HorizontalProgressBar';
 import { motion } from "framer-motion";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 // Import Swiper styles
 import "swiper/css";
@@ -170,7 +171,7 @@ const Section4 = () => {
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         animation: `${shineAnimation} 2s infinite linear`,
-                      
+
                     }}
                 >
                     SKIP FOR NEXT PHASE
@@ -200,7 +201,7 @@ const Section4 = () => {
                         modules={[Pagination, Navigation, Autoplay]}
                         breakpoints={swiperBreakpoints}
                         className="mySwiper2"
-                        autoplay={{ delay: 3000 }}
+                        autoplay={{ delay:5000 }}
                     >
                         {data.map((datas) => (
                             <SwiperSlide >
@@ -211,13 +212,9 @@ const Section4 = () => {
                                             <img src={datas.image} />
 
 
-                                            <Box sx={{ display: "flex", }}>
-
-                                                <Typography>Play Video</Typography>
-
-                                            </Box>
-                                            <HorizontalProgressBar duration={2500} color="yellow" />
-                                            <Box sx={{ position: "absolute", top: 280, textAlign: "left", p: 1 }}>
+                                          
+                                            <HorizontalProgressBar duration={51} color="yellow" />
+                                            <Box sx={{ position: "absolute", top: 250, textAlign: "left", p: 1 }}>
                                                 <Typography sx={{ color: "white", fontFamily: "Jura", fontSize: 24, fontWeight: 700 }}>
                                                     {datas.title}
                                                 </Typography>

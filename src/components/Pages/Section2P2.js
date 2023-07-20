@@ -25,7 +25,7 @@ const Section2 = () => {
   return (
 
     <>
-    //1
+  
       <Container>
         
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -40,7 +40,7 @@ const Section2 = () => {
         </Box>
       </Container>
 
-      //2
+    
 
       <Container>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -56,7 +56,7 @@ const Section2 = () => {
         </Box>
       </Container>
 
-      //3
+    
 
       <Container>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
